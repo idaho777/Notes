@@ -2,16 +2,20 @@
  * GET home page.
  */
 exports.index = function(req, res){
-  res.render('index', { title: 'Express' });
+	res.render('index', { title: 'Express' });
 };
 
 exports.userlist = function(db) {
-    return function(req, res) {
-        var collection = db.get('usercollection');
-        collection.find({},{},function(e,docs){
-            res.render('userlist', {
-                "userlist" : docs
-            });
-        });
-    };
+	return function(req, res) {
+		var collection = db.get('usercollection');
+		collection.find({},{},function(e,docs){
+			res.render('userlist', {
+				"userlist" : docs
+			});
+		});
+	};
+};
+
+exports.newuser = function(req, res){
+	res.render('newuser', { title: 'Add New User' });
 };

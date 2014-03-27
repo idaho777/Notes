@@ -12,6 +12,11 @@ function InitIndex() {
 
 	//event listener
 	EventListeners();
+
+	AddNote({
+		noteTitle : 'Test Title',
+		noteText : 'Test text'
+	});
 }
 
 /**
@@ -53,4 +58,23 @@ function EventListeners() {
 			$('.sideControlWrapper').animate({'width': 'toggle'});
 		}
 	})
+}
+
+/**
+ * this function will add a note into the current canvas
+ *
+ * @param : args {
+ * 		noteTitle : title of the note
+ * 		noteText : text of the note
+ * }
+ */
+function AddNote (args) {
+	var note = $('<div />')
+		.addClass('noteWrapper')
+		.append($('<span />')
+				.html(args.noteTitle))
+		.append($('<p />')
+				.text(args.noteText));
+
+	note.appendTo($('.notesDisplayContainer'));
 }

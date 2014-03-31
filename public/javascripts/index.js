@@ -13,10 +13,20 @@ function InitIndex() {
 	//event listener
 	EventListeners();
 
-	AddNote({
-		noteTitle : 'Test Title',
-		noteText : 'Test text'
-	});
+	//add 10 test notes
+	for(var i=0; i<5; i++) {
+		AddNote({
+			noteTitle : 'Test Title',
+			noteText : 'Test text \n we are going to do more I promise \n but for now we only have these tests'
+		});
+	}
+
+	for(var i=0; i<5; i++) {
+		AddNote({
+			noteTitle : 'Test Title',
+			noteText : 'Test text \n we are going to do more I promise \n but for now we only have these testsi \n what if the notes are longer? \n would javascript be nice enough to do some magic for us? \n or do we have to do some magic ourselves?'
+		});
+	}
 }
 
 /**

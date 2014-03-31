@@ -121,3 +121,13 @@ body {
 	position: absolute;
 	display: none;
 }
+
+.noteWrapper {
+	display: block;
+	-webkit-box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 10px 0px;
+	width: 300px;
+	resize: both;
+	margin: .5em .5em .5em .5em;
+	float: left;
+	background-color: #9DD6A9;
+}

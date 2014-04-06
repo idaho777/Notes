@@ -112,7 +112,6 @@ body {
 }
 
 .sideControlWrapper{
-	background-color: white;
 	height: 100%;
 	overflow-x: hidden;
 	overflow-y: auto;
@@ -120,6 +119,14 @@ body {
 	z-index: 1000;
 	position: absolute;
 	display: none;
+	-webkit-box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 0px 0px;
+	-webkit-transition-property: box-shadow;
+	-webkit-transition-timing-function: ease-in-out;
+	background-color: rgb(245, 245, 245);
+	background-origin: padding-box;
+	background-size: auto;
+	box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 0px 0px;
+	color: rgba(0, 0, 0, 0.6);
 }
 
 .noteWrapper {
@@ -130,4 +137,8 @@ body {
 	margin: .5em .5em .5em .5em;
 	float: left;
 	background-color: #9DD6A9;
+}
+
+.filterBox {
+	display: block
 }

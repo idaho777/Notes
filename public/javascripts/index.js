@@ -34,15 +34,18 @@ function InitIndex() {
  */
 function UpdateDimensions() {
 
+	var controlBarHeight = $('.controlBar').height();
+
 	var windowWidth = $(window).width();
-	var windowHieght = $(window).height();
+	var windowHeight = $(window).height();
 
 	//update the top control bar
-	$('.notesContainer').css("height", windowHieght)
+	$('.notesContainer').css("height", windowHeight)
 		.css("width", windowWidth);
 
-	$('.sideControlWrapper').css("height", windowHieght)
-		.css('margin-top', -windowHieght);
+	var sideControlHeight = windowHeight - controlBarHeight
+	$('.sideControlWrapper').css("height", sideControlHeight)
+		.css('margin-top', -sideControlHeight);
 }
 
 

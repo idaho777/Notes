@@ -115,7 +115,7 @@ body {
 	height: 100%;
 	overflow-x: hidden;
 	overflow-y: auto;
-	width: 300px;
+	padding: .4em .4em .4em .4em;
 	z-index: 1000;
 	position: absolute;
 	display: none;

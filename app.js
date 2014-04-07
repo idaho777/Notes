@@ -36,6 +36,7 @@ app.get('/', routes.index);
 app.get('/users', user.list);
 app.get('/userlist', routes.userlist(db));
 app.get('/newuser', routes.newuser);
+app.get('/getAllNotes', routes.getAllNotes(db));
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

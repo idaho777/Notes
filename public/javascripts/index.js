@@ -2,6 +2,8 @@ $(document).ready(function() {
 	InitIndex();
 });
 
+var basePath = 'http://localhost:3000/'; //hardcode for now
+
 function InitIndex() {
 
 	// update page dimensions
@@ -13,20 +15,27 @@ function InitIndex() {
 	//event listener
 	EventListeners();
 
-	//add 10 test notes
-	for(var i=0; i<5; i++) {
-		AddNote({
-			noteTitle : 'Test Title',
-			noteText : 'Test text \n we are going to do more I promise \n but for now we only have these tests'
-		});
-	}
+	//refreshes the notes page
+	RefreshPage();
+}
 
-	for(var i=0; i<5; i++) {
-		AddNote({
-			noteTitle : 'Test Title',
-			noteText : 'Test text \n we are going to do more I promise \n but for now we only have these testsi \n what if the notes are longer? \n would javascript be nice enough to do some magic for us? \n or do we have to do some magic ourselves?'
-		});
-	}
+/**
+ * this function will refresh the page
+ */
+function RefreshPage() {
+	//this is only proof of concept
+	$.get(basePath + 'getAllNotes', function(data, status){
+		var json = data;
+
+		var noteList = json.list;
+
+		for(var i=0; i<noteList.length; i++) {
+			AddNote({
+				noteTitle : noteList[i].title,
+				noteText : noteList[i].text
+			});
+		}
+	});
 }
 
 /**

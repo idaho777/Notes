@@ -8,7 +8,7 @@ exports.index = function(req, res){
 
 exports.userlist = function(db) {
 	return function(req, res) {
-		var collection = db.get('usercollection');
+		var collection = db.get('users');
 		collection.find({},{},function(e,docs){
 			res.render('userlist', {
 				"userlist" : docs

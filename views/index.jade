@@ -2,11 +2,14 @@ extends layout
 
 block content
 	.headerWrapper
+	.overlay
 	.notesContainer
 		.controlBarWrapper
 			.controlBar
 				.sideControlToggleButtonWrap
 					span.sideControlButton >>
+				button(type = 'button' class = 'addNotesButton')
+					'Add Note'
 		.notesDisplayContainer
 	.sideControlWrapper
 		div

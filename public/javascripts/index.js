@@ -23,6 +23,8 @@ function InitIndex() {
  * this function will refresh the page
  */
 function RefreshPage() {
+
+	$('.notesDisplayContainer').html('');
 	//this is only proof of concept
 	$.get(basePath + 'getAllNotes', function(data, status){
 		var json = data;
@@ -37,6 +39,7 @@ function RefreshPage() {
 			});
 		}
 	});
+
 }
 
 /**
@@ -54,7 +57,7 @@ function UpdateDimensions() {
 		.css("width", windowWidth);
 
 	var sideControlHeight = windowHeight - controlBarHeight
-	$('.sideControlWrapper').css("height", sideControlHeight)
+		$('.sideControlWrapper').css("height", sideControlHeight)
 		.css('margin-top', -sideControlHeight);
 }
 
@@ -66,6 +69,7 @@ function ChangeHandler() {
 }
 
 function EventListeners() {
+
 
 	// show side control button
 	$('.sideControlToggleButtonWrap').click(function(event) {
@@ -80,7 +84,50 @@ function EventListeners() {
 		if ($('.sideControlWrapper').is(':visible')) {
 			$('.sideControlWrapper').animate({'width': 'toggle'});
 		}
-	})
+	});
+
+	//add notes button
+	$('.addNotesButton').click(function(event) {
+		event.preventDefault();
+		event.stopPropagation();
+
+		if(! $('.overlay').is(":visible")) {
+			$('.overlay')
+				.append($('<input type = "text" name = "newNoteTitle" class = "newNoteTitle"/>')
+					.addClass('newNoteTitle'))
+				.append($('<textarea />')
+					.addClass('newNoteText'))
+				.append($('<button type="button" class="dialogSubmitButton"/>')
+					.text("Add Note"))
+				.append($('<button type="button" class="dialogCancelButton"/>')
+					.text("Cancel"));
+			$('.overlay').fadeIn();
+
+			$('.dialogCancelButton').click(function(event) {
+				$('.overlay').fadeOut();
+				$('.overlay').html('');
+			});
+
+			$('.dialogSubmitButton').click(function(event) {
+				var text = $('.newNoteText').val();
+				var title = $('.newNoteTitle').val();
+
+				$.ajax({
+					type: "POST",
+					url: basePath + 'addNote',
+					data: {
+						title : title,
+						text : text
+					},
+					success: function() {
+						$('.overlay').fadeOut();
+						$('.overlay').html('');
+						RefreshPage();
+					}
+				});
+			});
+		}
+	});
 }
 
 /**
@@ -97,8 +144,21 @@ function AddNote (args) {
 		.attr('id', args.id)
 		.append($('<span />')
 				.html(args.noteTitle))
+		.append($('<a href="#" />')
+				.addClass('deleteNoteLink')
+				.text('x').click(function(event) {
+					$.ajax({
+						type: "POST",
+						url: basePath + 'deleteNote',
+						data: {
+							id : $(this).parent('div').attr('id')
+						},
+						success: function() {
+							RefreshPage();
+						}
+					});
+				}))
 		.append($('<p />')
-				.text(args.noteText));
-
+				.html(args.noteText.replace(/\n/g, '<br>')));
 	note.appendTo($('.notesDisplayContainer'));
 }

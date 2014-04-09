@@ -31,6 +31,7 @@ function RefreshPage() {
 
 		for(var i=0; i<noteList.length; i++) {
 			AddNote({
+				id : noteList[i]._id,
 				noteTitle : noteList[i].title,
 				noteText : noteList[i].text
 			});
@@ -93,6 +94,7 @@ function EventListeners() {
 function AddNote (args) {
 	var note = $('<div />')
 		.addClass('noteWrapper')
+		.attr('id', args.id)
 		.append($('<span />')
 				.html(args.noteTitle))
 		.append($('<p />')

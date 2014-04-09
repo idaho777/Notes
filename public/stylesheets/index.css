@@ -136,7 +136,14 @@ body {
 	resize: both;
 	margin: .5em .5em .5em .5em;
 	float: left;
-	background-color: #9DD6A9;
+	background-color: rgb(241, 241, 78)
+}
+
+.noteWrapper span {
+	text-decoration: underline;
+	font-weight: bold;
+	display: block;
+	margin: .5em .5em .5em .5em;
 }
 
 .filterBox {

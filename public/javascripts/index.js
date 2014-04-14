@@ -70,7 +70,6 @@ function ChangeHandler() {
 
 function EventListeners() {
 
-
 	// show side control button
 	$('.sideControlToggleButtonWrap').click(function(event) {
 		event.preventDefault();
@@ -93,7 +92,7 @@ function EventListeners() {
 
 		if(! $('.overlay').is(":visible")) {
 			$('.overlay')
-				.append($('<input type = "text" name = "newNoteTitle" class = "newNoteTitle"/>')
+				.append($('<input type = "text" name = "newNoteTitle"/>')
 					.addClass('newNoteTitle'))
 				.append($('<textarea />')
 					.addClass('newNoteText'))
@@ -159,6 +158,54 @@ function AddNote (args) {
 					});
 				}))
 		.append($('<p />')
-				.html(args.noteText.replace(/\n/g, '<br>')));
+			.html(args.noteText.replace(/\n/g, '<br>')));
 	note.appendTo($('.notesDisplayContainer'));
+
+	//update notes listener
+	$('#' + args.id).click(function(event) {
+		event.preventDefault();
+		event.stopPropagation();
+
+		if(! $('.overlay').is(":visible")) {
+			$('.overlay')
+				.append($('<textarea />')
+					.addClass('updateNoteTitle')
+					.text($(this).find('span').text()))
+				.append($('<textarea />')
+					.addClass('updateNoteText')
+					.text($(this).find('p').text()))
+				.append($('<button type="button" class="dialogSubmitButton"/>')
+					.text("Update Note"))
+				.append($('<button type="button" class="dialogCancelButton"/>')
+					.text("Cancel"));
+			$('.overlay').fadeIn();
+
+			$('.dialogCancelButton').click(function(event) {
+				$('.overlay').fadeOut();
+				$('.overlay').html('');
+			});
+
+			var id = $(this).attr('id');
+
+			$('.dialogSubmitButton').click(function(event) {
+				var text = $('.updateNoteText').val();
+				var title = $('.updateNoteTitle').val();
+
+				$.ajax({
+					type: "POST",
+					url: basePath + 'updateNote',
+					data: {
+						id : id,
+						title : title,
+						text : text
+					},
+					success: function() {
+						$('.overlay').fadeOut();
+						$('.overlay').html('');
+						RefreshPage();
+					}
+				});
+			});
+		}
+	});
 }

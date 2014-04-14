@@ -75,3 +75,27 @@ exports.deleteNote = function(db) {
 		});
 	}
 }
+
+exports.updateNote = function(db) {
+	return function(req, res) {
+		var id = req.body.id;
+
+		var collection = db.get('notecollection');
+		var mongo = require('mongodb');
+		var BSON = mongo.BSONPure;
+		var o_id = new BSON.ObjectID(id);
+
+		collection.update({
+			'_id' : o_id
+		}, {
+			'title' : req.body.title,
+			'text' : req.body.text
+		}, function(err, doc) {
+			if(err) {
+				res.send("you fail...");
+			} else {
+				res.json(200, {'updated' : doc});
+			}
+		});
+	}
+}

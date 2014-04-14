@@ -160,7 +160,7 @@ body {
 	z-index: 10;
 }
 
-.newNoteText {
+.newNoteText, .updateNoteText {
 	position: absolute;
 	display: block;
 	width: 500px;
@@ -171,7 +171,7 @@ body {
 	margin-top: -100px;
 }
 
-.newNoteTitle {
+.newNoteTitle, .updateNoteTitle {
 	width: 500px;
 	position: absolute;
 	top: 50%;

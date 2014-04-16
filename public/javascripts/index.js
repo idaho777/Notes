@@ -71,7 +71,7 @@ function ChangeHandler() {
 function EventListeners() {
 
 	// show side control button
-	$('.sideControlToggleButtonWrap').click(function(event) {
+	$('.sideControlButton').click(function(event) {
 		event.preventDefault();
 		event.stopPropagation();
 		$('.sideControlWrapper').animate({'width': 'toggle'});;
@@ -138,6 +138,11 @@ function EventListeners() {
  * }
  */
 function AddNote (args) {
+
+	if(!args.noteText || !args.noteTitle) {
+		return;
+	}
+
 	var note = $('<div />')
 		.addClass('noteWrapper')
 		.attr('id', args.id)
@@ -146,6 +151,8 @@ function AddNote (args) {
 		.append($('<a href="#" />')
 				.addClass('deleteNoteLink')
 				.text('x').click(function(event) {
+					event.preventDefault();
+					event.stopPropagation();
 					$.ajax({
 						type: "POST",
 						url: basePath + 'deleteNote',

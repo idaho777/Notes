@@ -21,7 +21,7 @@ body {
 
 .controlBarWrapper {
 	font-family: arial, sans-serif;
-	height: 48px;
+	height: 36px;
 	position: relative;
 	width: 100%;
 	z-index: 702;
@@ -48,7 +48,7 @@ body {
 	display: block;
 	font-family: arial, sans-serif;
 	font-size: 15px;
-	height: 48px;
+	height: 100%;
 	position: relative;
 	transition-delay: 0s;
 	transition-duration: 0.13s;
@@ -59,37 +59,9 @@ body {
 	overflow-x: visible;
 }
 
-.sideControlToggleButtonWrap {
-	border-bottom-color: rgba(0, 0, 0, 0);
-	border-bottom-style: solid;
-	border-bottom-width: 1px;
-	border-image-outset: 0px;
-	border-image-repeat: stretch;
-	border-image-slice: 100%;
-	border-image-source: none;
-	border-image-width: 1;
-	border-left-color: rgba(0, 0, 0, 0);
-	border-left-style: solid;
-	border-left-width: 1px;
-	border-right-color: rgba(0, 0, 0, 0);
-	border-right-style: solid;
-	border-right-width: 1px;
-	border-top-color: rgba(0, 0, 0, 0);
-	border-top-style: solid;
-	border-top-width: 1px;
-	color: rgba(0, 0, 0, 0.6);
-	cursor: pointer;
-	direction: ltr;
-	display: inline-block;
-	font-family: arial, sans-serif;
-	font-size: 14px;
-	height: 22px;
-	padding-bottom: 13px;
-	padding-left: 30px;
-	padding-right: 15px;
-	padding-top: 13px;
-	position: relative;
-	width: 66px;
+.loginButton {
+	float: right;
+	margin: .2em .2em .2em .2em;
 }
 
 .sideControlButton {
@@ -100,7 +72,7 @@ body {
 }
 
 .notesDisplayContainer {
-	background-color: rgb(196, 196, 196);
+	background-color: rgb(230, 230, 230);
 	direction: ltr;
 	display: block;
 	font-family: arial, sans-serif;
@@ -143,6 +115,10 @@ body {
 	text-decoration: underline;
 	font-weight: bold;
 	display: block;
+	margin: .5em .5em .5em .5em;
+}
+
+.noteWrapper p {
 	margin: .5em .5em .5em .5em;
 }
 
@@ -199,6 +175,16 @@ body {
 .deleteNoteLink {
 	float: right;
 	display: block;
-	position: relative;
-	margin: -30px .3em;
+	height: 26px;
+	width: 26px;
+	line-height: 24px;
+	-moz-border-radius: 13px;
+	border-radius: 13px;
+	background-color: rgba(236, 236, 84, 1);
+	border-color: black;
+	color: rgb(204, 200, 105);
+	text-align: center;
+	font-size: 1em;
+	margin: -30px .2em 0 0;
+	text-decoration: none;
 }

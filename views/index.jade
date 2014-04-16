@@ -6,15 +6,20 @@ block content
 	.notesContainer
 		.controlBarWrapper
 			.controlBar
-				.sideControlToggleButtonWrap
-					span.sideControlButton >>
-				button(type = 'button' class = 'addNotesButton') 'Add Note'
+				<a href="#" class="button button-rounded button-flat sideControlButton">Menu</a>
+				<a href="#" class="button button-rounded button-flat loginButton">Login</a>
 		.notesDisplayContainer
 	.sideControlWrapper
 		div
 			span Filter By Content:
 			input(type = 'text' name = 'contentFilter' id = 'contentFilter' class = 'filterBox')
 		div
+			span Filter By Title:
+			input(type = 'text' name = 'titleFilter' id = 'titleFilter' class = 'filterBox')
+		div
 			span Filter By User:
 			input(type = 'text' name = 'userFilter' id = 'userFilter' class = 'filterBox')
+		<a href="#" class="button button-block button-rounded button-large applyFilterButton">Apply Filters</a>
+		<a href="#" class="button button-block button-rounded button-large addNotesButton">Add Note</a>
+
 

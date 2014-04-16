@@ -39,6 +39,12 @@ exports.addNote = function(db) {
 
 		var collection = db.get('notecollection');
 
+		if(!title || !text) {
+			res.send("Invalid Form!");
+			res.jason(500, {});
+			return;
+		}
+
 		collection.insert({
             "title" : title,
             "text" : text

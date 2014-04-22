@@ -13,13 +13,13 @@ var mongo = require('mongodb');
 var monk = require('monk');
 
 //uncomment to connect to the real database
-//var db = monk('ds063287.mongolab.com:63287/sjnotes', {
-//  username : 'sjnotes',
-//  password : 'sjnotes'
-//});
+var db = monk('ds063287.mongolab.com:63287/sjnotes', {
+ username : 'sjnotes',
+ password : 'sjnotes'
+});
 
 //uncomment to connect to the test database
-var db = monk('localhost:27017/notestest');
+// var db = monk('localhost:27017/notestest');
 
 var app = express();
 

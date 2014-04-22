@@ -198,11 +198,14 @@ function AddNote (args) {
 					.text($(this).find('span').text()))
 				.append($('<textarea />')
 					.addClass('updateNoteText')
-					.text($(this).find('p').text()))
+					.text($(this).find('p').html()))
 				.append($('<button type="button" class="dialogSubmitButton"/>')
 					.text("Update Note"))
 				.append($('<button type="button" class="dialogCancelButton"/>')
 					.text("Cancel"));
+
+			$('.updateNoteText').val($('.updateNoteText').val().replace(/<br>/g, '\n'));
+
 			$('.overlay').fadeIn();
 
 			$('.dialogCancelButton').click(function(event) {
@@ -239,5 +242,5 @@ function AddNote (args) {
 
 function updateNote(note, title, text) {
 	note.find('span').text(title);
-	note.find('p').text(text.replace(/\n/g, '<br>'));
+	note.find('p').html(text.replace(/\n/g, '<br>'));
 }

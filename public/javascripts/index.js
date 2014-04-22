@@ -17,12 +17,16 @@ function InitIndex() {
 
 	//refreshes the notes page
 	RefreshPage();
+
+	$('.controlBarStatusText').text("Notes View");
 }
 
 /**
  * this function will refresh the page
  */
 function RefreshPage() {
+	$('.controlBarStatusText').text("Notes View");
+	$('.controlBarStatusText').css('color', 'rgba(0, 61, 255, 0.6)');
 
 	$('.notesDisplayContainer').html('');
 	//this is only proof of concept
@@ -68,6 +72,11 @@ function ChangeHandler() {
 	});
 }
 
+function resetControlBarText() {
+	$('.controlBarStatusText').text("Notes View");
+	$('.controlBarStatusText').css('color', 'rgba(0, 61, 255, 0.6)');
+}
+
 function EventListeners() {
 
 	// show side control button
@@ -90,6 +99,9 @@ function EventListeners() {
 		event.preventDefault();
 		event.stopPropagation();
 
+		$('.controlBarStatusText').text('Add Note');
+		$('.controlBarStatusText').css('color', 'rgba(0, 255, 0, 0.6)');
+
 		if(! $('.overlay').is(":visible")) {
 			$('.overlay')
 				.append($('<input type = "text" name = "newNoteTitle"/>')
@@ -105,6 +117,7 @@ function EventListeners() {
 			$('.dialogCancelButton').click(function(event) {
 				$('.overlay').fadeOut();
 				$('.overlay').html('');
+				resetControlBarText();
 			});
 
 			$('.dialogSubmitButton').click(function(event) {
@@ -153,14 +166,17 @@ function AddNote (args) {
 				.text('x').click(function(event) {
 					event.preventDefault();
 					event.stopPropagation();
+
+					var note = $(this).parent('div');
+
 					$.ajax({
 						type: "POST",
 						url: basePath + 'deleteNote',
 						data: {
-							id : $(this).parent('div').attr('id')
+							id : note.attr('id')
 						},
 						success: function() {
-							RefreshPage();
+							note.fadeOut();
 						}
 					});
 				}))
@@ -173,6 +189,8 @@ function AddNote (args) {
 		event.preventDefault();
 		event.stopPropagation();
 
+		$('.controlBarStatusText').text("Update Note");
+		$('.controlBarStatusText').css('color', 'rgba(255, 61, 0, 0.6)');
 		if(! $('.overlay').is(":visible")) {
 			$('.overlay')
 				.append($('<textarea />')
@@ -190,9 +208,11 @@ function AddNote (args) {
 			$('.dialogCancelButton').click(function(event) {
 				$('.overlay').fadeOut();
 				$('.overlay').html('');
+				resetControlBarText();
 			});
 
 			var id = $(this).attr('id');
+			var note = $(this);
 
 			$('.dialogSubmitButton').click(function(event) {
 				var text = $('.updateNoteText').val();
@@ -209,10 +229,15 @@ function AddNote (args) {
 					success: function() {
 						$('.overlay').fadeOut();
 						$('.overlay').html('');
-						RefreshPage();
+						updateNote(note, title, text);
 					}
 				});
 			});
 		}
 	});
+}
+
+function updateNote(note, title, text) {
+	note.find('span').text(title);
+	note.find('p').text(text.replace(/\n/g, '<br>'));
 }

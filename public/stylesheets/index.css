@@ -116,10 +116,12 @@ body {
 	font-weight: bold;
 	display: block;
 	margin: .5em .5em .5em .5em;
+	color: black;
 }
 
 .noteWrapper p {
 	margin: .5em .5em .5em .5em;
+	color: black;
 }
 
 .filterBox {
@@ -187,4 +189,10 @@ body {
 	font-size: 1em;
 	margin: -30px .2em 0 0;
 	text-decoration: none;
+}
+
+.controlBarStatusText {
+	font-weight : bold;
+	margin-left : 5em;
+
 }

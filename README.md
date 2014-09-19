@@ -20,19 +20,19 @@ Files
 How to Compile
 --------------
 **To compile run**:
-    javac *.java
+    <p>javac *.java </p>
 
 **To run our calculator using TCP**:
-    - java RemoteCalc_Server_TCP <PortNumber>
-    - java RemoteCalc_TCP <PortNumber> <Add/Multiply> <number0> <number1>
+    <p>- java RemoteCalc_Server_TCP <PortNumber> </p>
+    <p>- java RemoteCalc_TCP <PortNumber> <Add/Multiply> <number0> <number1> </p>
 
 **To run our calculator using UDP**:
-    - java RemoteCalc_Server_UDP <PortNumber>
-    - java RemoteCalc_UDP <PortNumber> <Add/Multiply> <number0> <number1>
+    <p>- java RemoteCalc_Server_UDP <PortNumber> </p>
+    <p>- java RemoteCalc_UDP <PortNumber> <Add/Multiply> <number0> <number1> </p>
 
 **To run our calculator using TCP with Java client and Python server**
-    - python RemoteCalc_Server_TCP.py <PortNumber>
-    - java RemoteCalc_TCP <PortNumber> <Add/Multiply> <number0> <number1>
+    <p>- python RemoteCalc_Server_TCP.py <PortNumber> </p>
+    <p>- java RemoteCalc_TCP <PortNumber> <Add/Multiply> <number0> <number1> </p>
 
 Bugs or limitations
 -------------------

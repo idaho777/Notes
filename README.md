@@ -10,12 +10,12 @@ Title:      Introduction to Socket Programming
 
 Files
 -----
-RemoteCalc_Server_TCP.java is the TCP Server on our localhost.
-RemoteCalc_Server_UDP.java is the UDP Server on our localhost.
-RemoteCalc_TCP.java is the TCP client program on our localhost.
-RemoteCalc_UDP.java is the UDP client program on our localhost.
-RemoteCalc_Server_TCP.py is the extra credit TCP Server on our local host.
-sample.txt is a sample output file.
+<p>RemoteCalc_Server_TCP.java is the TCP Server on our localhost.<p>
+<p>RemoteCalc_Server_UDP.java is the UDP Server on our localhost.<p>
+<p>RemoteCalc_TCP.java is the TCP client program on our localhost.<p>
+<p>RemoteCalc_UDP.java is the UDP client program on our localhost.<p>
+<p>RemoteCalc_Server_TCP.py is the extra credit TCP Server on our local host.<p>
+<p>sample.txt is a sample output file.<p>
 
 How to Compile
 --------------

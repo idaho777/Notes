@@ -1,21 +1,21 @@
 Project 1: Introduction to Socket Programming
 ==============
 
-Name:       Joonho Kim
-E-mail:     jkim844@mail.gatech.edu
-Class Name: CS 3251
-Section:    A
-Date:       09/19/2014
-Title:      Introduction to Socket Programming
+<p>Name:       Joonho Kim</p>
+<p>E-mail:     jkim844@mail.gatech.edu</p>
+<p>Class Name: CS 3251</p>
+<p>Section:    A</p>
+<p>Date:       09/19/2014</p>
+<p>Title:      Introduction to Socket Programming</p>
 
 Files
 -----
-<p>RemoteCalc_Server_TCP.java is the TCP Server on our localhost.<p>
-<p>RemoteCalc_Server_UDP.java is the UDP Server on our localhost.<p>
-<p>RemoteCalc_TCP.java is the TCP client program on our localhost.<p>
-<p>RemoteCalc_UDP.java is the UDP client program on our localhost.<p>
-<p>RemoteCalc_Server_TCP.py is the extra credit TCP Server on our local host.<p>
-<p>sample.txt is a sample output file.<p>
+<p>RemoteCalc_Server_TCP.java is the TCP Server on our localhost.</p>
+<p>RemoteCalc_Server_UDP.java is the UDP Server on our localhost.</p>
+<p>RemoteCalc_TCP.java is the TCP client program on our localhost.</p>
+<p>RemoteCalc_UDP.java is the UDP client program on our localhost.</p>
+<p>RemoteCalc_Server_TCP.py is the extra credit TCP Server on our local host.</p>
+<p>sample.txt is a sample output file.</p>
 
 How to Compile
 --------------
